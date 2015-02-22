@@ -13,13 +13,21 @@
 <body>
   <h1>My Nerd Report</h1>
   <script type="text/javascript">
+
+    var bookData = [36, 73, 20];
     var canvas = d3.select("body")
                 .append("svg")
                 .style("color", "black")
-                .style("background-color", "black")
+                .style("background-color", "blue")
                 .attr("width", 500)
                 .attr("height", 500);
-
+    var graph = canvas.selectAll("rect")
+                .data(bookData)
+                .enter()
+                  .append("rect")
+                  .attr("width", function(d){ return d * 5})
+                  .attr("height", 50)
+                  .attr("y", function(d, i){ return i * 100 });
   </script>
   <p>&copy; Andrea Moulding <?php echo date('m/d/Y');?></p>
 </body>
