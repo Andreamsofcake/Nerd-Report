@@ -14,18 +14,26 @@
   <h1>My Nerd Report</h1>
   <script type="text/javascript">
 
-    var bookData = [36, 73, 20];
-    var canvas = d3.select("body")
+   bookData = [36, 73, 20, 60, 80];
+
+   width = 500;
+   height = 500;
+
+   widthScale = d3.scale.linear()
+                .domain([0, 100])
+                .range([0, width])
+
+   canvas = d3.select("body")
                 .append("svg")
                 .style("color", "black")
                 .style("background-color", "blue")
-                .attr("width", 500)
-                .attr("height", 500);
-    var graph = canvas.selectAll("rect")
+                .attr("width", width)
+                .attr("height", height);
+   graph = canvas.selectAll("rect")
                 .data(bookData)
                 .enter()
                   .append("rect")
-                  .attr("width", function(d){ return d * 5})
+                  .attr("width", function(d){ return widthScale(d); })
                   .attr("height", 50)
                   .attr("y", function(d, i){ return i * 100 });
   </script>
