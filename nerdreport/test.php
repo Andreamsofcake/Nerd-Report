@@ -30,7 +30,7 @@
 
    canvas = d3.select("body")
                 .append("svg")
-                .style("color", "black")
+                .style("color", "white")
                 .style("background-color", "white")
                 .attr("width", width)
                 .attr("height", height)
@@ -45,10 +45,10 @@
                   .attr("height", 50)
                   .attr("fill", function (d) {return colorScale(d); })
                   .attr("y", function(d, i){ return i * 100 });
-
   canvas.append("g")
         .attr("transform", "translate(0, 500)")
         .call(axis);
+
   </script>
   <p>&copy; Andrea Moulding <?php echo date('m/d/Y');?></p>
 </body>

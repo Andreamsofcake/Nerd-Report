@@ -2,4 +2,10 @@ circle {
   stroke: #000;
   stroke-opacity: .5; }
 
+.domain {
+  color: #fff; }
+
+.tick {
+  color: #fff; }
+
 /*# sourceMappingURL=styles.css.map */
