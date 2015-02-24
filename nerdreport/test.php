@@ -16,8 +16,8 @@
 
    bookData = [36, 73, 20, 60, 80];
 
-   width = 500;
-   height = 500;
+   width = 550;
+   height = 550;
 
    widthScale = d3.scale.linear()
                 .domain([0, 100])
@@ -25,13 +25,17 @@
    colorScale = d3.scale.linear()
                 .domain([0, 100])
                 .range(["white", "red"]);
+   axis = d3.svg.axis()
+          .scale(widthScale);
 
    canvas = d3.select("body")
                 .append("svg")
                 .style("color", "black")
-                .style("background-color", "black")
+                .style("background-color", "white")
                 .attr("width", width)
-                .attr("height", height);
+                .attr("height", height)
+                .append("g")
+                .attr("transform", "translate(20, 0)");
 
    graph = canvas.selectAll("rect")
                 .data(bookData)
@@ -41,6 +45,10 @@
                   .attr("height", 50)
                   .attr("fill", function (d) {return colorScale(d); })
                   .attr("y", function(d, i){ return i * 100 });
+
+  canvas.append("g")
+        .attr("transform", "translate(0, 500)")
+        .call(axis);
   </script>
   <p>&copy; Andrea Moulding <?php echo date('m/d/Y');?></p>
 </body>
