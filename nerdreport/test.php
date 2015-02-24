@@ -5,10 +5,10 @@
   <meta charset="utf-8">
 
   <title>My Nerd Report</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+  <meta name="description" content="My Nerd Report">
+  <meta name="author" content="Andrea">
   <script type="text/javascript" src="d3/d3.js"></script>
-  <link rel="stylesheet" href="styles.css?v=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>My Nerd Report</h1>
@@ -46,6 +46,7 @@
                   .attr("fill", function (d) {return colorScale(d); })
                   .attr("y", function(d, i){ return i * 100 });
   canvas.append("g")
+        .attr("class", "axis")
         .attr("transform", "translate(0, 500)")
         .call(axis);
 
